@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    /* background-image: url('https://1.bp.blogspot.com/-83pWE4JxQxM/ViiOd_7nGTI/AAAAAAAADUg/yCJ8iAB-gMY/s1600/postapoc5.jpg'); デフォルトの背景画像 */
+    /* background-size: cover; */
+    margin: 0;
+    height: 100vh;
+    color: white;
+    background: black;
+}
+
+#image-container {
+    height: 500px;
+    width: 500px;
+   display: block;
+   justify-content: center;
+    background-size: cover;
+    background-position: center;
+    /* margin-bottom: 1em; */
+}
+#game-container {
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(132, 132, 136); /* ゲームコンテナの背景色 */
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+
+#user-action-container {
+    text-align: center;
+}
+
+#text {
+    text-align: center;
+}
+
+#text-area {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#next-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
