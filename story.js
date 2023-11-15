@@ -1,4 +1,6 @@
-// シーンの定義
+let activeSceneIndex = 0;
+
+// Defining the scene
 const scenes = [
     {
       image: "https://1.bp.blogspot.com/-83pWE4JxQxM/ViiOd_7nGTI/AAAAAAAADUg/yCJ8iAB-gMY/s1600/postapoc5.jpg",
@@ -31,48 +33,4 @@ const scenes = [
       button2: { text: "終了", nextSceneIndex: -1 } // -1は終了を表す
     }
   ];
-  
-  let activeSceneIndex = 0;
-  
-  // DOMContentLoaded イベントが発火したら main 関数を実行
-  window.addEventListener("DOMContentLoaded", main);
-  
-  // メイン関数
-  function main() {
-    renderScene();
-  }
-  
-  // シーンをレンダリングする関数
-  function renderScene() {
-      const text = document.getElementById("text");
-      const btn1 = document.getElementById("btn-1");
-      const btn2 = document.getElementById("btn-2");
-    　const imageContainer = document.getElementById("image-container");
-      
-      const scene = scenes[activeSceneIndex];
 
-    //   document.body.style.backgroundImage = `url('${scene.background}')`;
-      imageContainer.style.backgroundImage = `url('${scene.image})`
-      text.textContent = scene.text;
-      btn1.textContent = scene.button1.text;
-      btn2.textContent = scene.button2.text;
-   
-      btn1.onclick = function () {
-          goToNextScene(scene.button1.nextSceneIndex);
-        };
-        btn2.onclick = function () {
-            goToNextScene(scene.button2.nextSceneIndex);
-        };
-    }
-  
-function goToNextScene(sceneIndex) {
-    activeSceneIndex = sceneIndex;
-
-    // ゲーム終了の場合はアラートを表示して処理を中断
-    if (activeSceneIndex === -1) {
-        alert("ゲーム終了！");
-        return;
-    }
-
-    renderScene();
-}
