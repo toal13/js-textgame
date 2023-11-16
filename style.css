@@ -13,6 +13,7 @@ body {
     object-fit: cover;
     background-size: contain;
     background-position: center;
+    border-radius: 8px;
 }
 
 #game-container {
@@ -23,11 +24,30 @@ body {
     flex-direction: column;
     width: 60%;
     margin: auto;
+    border-radius: 8px;
 }
 
-#btn-1, #btn-2 {
+/* #btn-1, #btn-2 {
     height: 50px;
     width: 140px;
     border-radius: 5px;
-}
+} */
 
+#btn-1, #btn-2 {
+	/* display: block; */
+	/* text-align: center; */
+	/* vertical-align: middle; */
+	/* text-decoration: none; */
+	/* width: 120px; */
+	margin: auto;
+	padding: 1rem 4rem;
+	font-weight: bold;
+	border: 2px solid #27acd9;
+	color: #27acd9;
+	transition: 0.5s;
+    border-radius:8px;
+}
+#btn-1:hover, #btn-2:hover {
+	color: #fff;
+	background: #27acd9;
+}

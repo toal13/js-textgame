@@ -1,6 +1,27 @@
-let activeSceneIndex = 0;
+ /** 
+ * Gets the active scene index. If not stored in local storage, defaults to 0.
+ * @type {number}
+ */
+ let activeSceneIndex = localStorage.getItem("activeSceneIndex") || 0;
 
-// Defining the scene
+
+/** 
+ * Definition of a scene
+ * @typedef {Object} Scene
+ * @property {string} image - URL of the scene's background image
+ * @property {string} text - Description text of the scene
+ * @property {Object} button1 - Object representing the first button
+ * @property {string} button1.text - Display text of the first button
+ * @property {number} button1.nextSceneIndex - Index of the next scene when the first button is clicked
+ * @property {Object} button2 - Object representing the second button
+ * @property {string} button2.text - Display text of the second button
+ * @property {number} button2.nextSceneIndex - Index of the next scene when the second button is clicked
+ */
+
+/** 
+ * Array of scenes
+ * @type {Scene[]}
+ */
 const scenes = [
     {
       image: "https://1.bp.blogspot.com/-83pWE4JxQxM/ViiOd_7nGTI/AAAAAAAADUg/yCJ8iAB-gMY/s1600/postapoc5.jpg",
@@ -23,14 +44,14 @@ const scenes = [
     {
        image: "",
        text: "書物には古代の魔法の儀式が書かれています。あなたはそれを試してみます。。",
-       button1: { text: "儀式を試す", nextSceneIndex: 5 },
+       button1: { text: "儀式を試す", nextSceneIndex: 4 },
        button2: { text: "建物を出る", nextSceneIndex: 4 }
     },
     {
        image: "",
       text: "あなたは儀式を試し、不思議な力を手に入れました。冒険は続きます。",
       button1: { text: "最初に戻る", nextSceneIndex: 0 },
-      button2: { text: "終了", nextSceneIndex: -1 } // -1は終了を表す
+      button2: { text: "終了", nextSceneIndex: -1 } // -1 is the end of the game
     }
   ];
 
