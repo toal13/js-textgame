@@ -19,7 +19,7 @@ body {
 #game-container {
     text-align: center;
     padding: 20px 0;
-    background-color: rgb(77, 77, 79);
+    background-color: black;
     flex-wrap: nowrap;
     flex-direction: column;
     width: 60%;
@@ -27,27 +27,18 @@ body {
     border-radius: 8px;
 }
 
-/* #btn-1, #btn-2 {
-    height: 50px;
-    width: 140px;
-    border-radius: 5px;
-} */
-
 #btn-1, #btn-2 {
-	/* display: block; */
-	/* text-align: center; */
-	/* vertical-align: middle; */
-	/* text-decoration: none; */
-	/* width: 120px; */
-	margin: auto;
+	margin: 20px;
 	padding: 1rem 4rem;
 	font-weight: bold;
-	border: 2px solid #27acd9;
-	color: #27acd9;
+	border: 2px solid #5B9A8B;
+	color: #5B9A8B;
 	transition: 0.5s;
     border-radius:8px;
+
 }
+
 #btn-1:hover, #btn-2:hover {
 	color: #fff;
-	background: #27acd9;
+	background: #5B9A8B;
 }

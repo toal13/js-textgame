@@ -33,6 +33,12 @@ function renderScene() {
     btn1.textContent = scene.button1.text;
     btn2.textContent = scene.button2.text;
 
+    if (scene.hideButton2) {
+      btn2.style.display = "none";
+    } else {
+      btn2.style.display = "inline-block";
+    }
+  
     /**
    * Event handler for the first button click.
    * Navigates to the next scene based on the provided scene index.
@@ -60,16 +66,13 @@ function renderScene() {
 function goToNextScene(sceneIndex) {
   activeSceneIndex = sceneIndex;
 
-
-
   // If the game ends, display an alert and interrupt the process.
   if (activeSceneIndex === -1) {
-    
       Swal.fire("Game over!");
       return;
   }
 
-  localStorage.setItem("activeSceneIndex", activeSceneIndex);
-  
+   localStorage.setItem("activeSceneIndex", activeSceneIndex);
+
   renderScene();
 }

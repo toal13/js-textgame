@@ -2,8 +2,8 @@
  * Gets the active scene index. If not stored in local storage, defaults to 0.
  * @type {number}
  */
- let activeSceneIndex = localStorage.getItem("activeSceneIndex") || 0;
-
+  let activeSceneIndex = localStorage.getItem("activeSceneIndex") || 0;
+  // let activeSceneIndex = 0;
 
 /** 
  * Definition of a scene
@@ -24,34 +24,50 @@
  */
 const scenes = [
     {
-      image: "https://1.bp.blogspot.com/-83pWE4JxQxM/ViiOd_7nGTI/AAAAAAAADUg/yCJ8iAB-gMY/s1600/postapoc5.jpg",
-      text: "ある日、冒険者のあなたは森の中で目立つ建物を見つけました。",
-      button1: { text: "建物に入る", nextSceneIndex: 1 },
-      button2: { text: "建物を無視して進む", nextSceneIndex: 2 }
+      image: "https://images.unsplash.com/photo-1545460463-afdcfb3a3e53?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      text: "The vacation you've been waiting for is about to begin. After a long flight, we arrived at a small airport on a southern island. Head into town to find a hotel",
+      button1: { text: "Bus", nextSceneIndex: 1},
+      button2: { text: "Taxi", nextSceneIndex: 4}
     },
     {
-    image: "https://images.unsplash.com/photo-1682695795557-17447f921f79?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      text: "建物の中には古代の書物がたくさんあります",
-      button1: { text: "書物を読む", nextSceneIndex: 3 },
-      button2: { text: "建物を出る", nextSceneIndex: 4 }
+    image: "https://images.unsplash.com/photo-1656486579907-43cca750cb61?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      text: "While you were on the bus, the bus broke down.",
+      button1: { text: "Waiting for the bus to be repaired", nextSceneIndex: 3 },
+      button2: { text: "Hitchhike", nextSceneIndex: 2 }
     },
     {
-      image: "",
-      text: "建物の中には何もありませんでした。森に戻ります。",
-      button1: { text: "次へ", nextSceneIndex: -1 },
-      button2: { text: "最初に戻る", nextSceneIndex: 0 }
+      image: "https://images.unsplash.com/photo-1582038715054-adba011b2da2?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      text: "The person who gave me a ride was very kind. So the driver suggested",
+      button1: { text: "Have the driver take you to town to find a hotel", nextSceneIndex: 6 },
+      button2: { text: "Would you like to come to my house for dinner?", nextSceneIndex: 5 }
     },
     {
-       image: "",
-       text: "書物には古代の魔法の儀式が書かれています。あなたはそれを試してみます。。",
-       button1: { text: "儀式を試す", nextSceneIndex: 4 },
-       button2: { text: "建物を出る", nextSceneIndex: 4 }
+       image: "https://images.unsplash.com/photo-1454023492550-5696f8ff10e1?q=80&w=2374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+       text: "While we were waiting for the bus to be repaired, a herd of tigers came from the mountains.",
+       button1: { text: "Start over", nextSceneIndex: 0 },
+       button2: { text: "Start over", nextSceneIndex: 0 },
+       hideButton2: true
     },
     {
-       image: "",
-      text: "あなたは儀式を試し、不思議な力を手に入れました。冒険は続きます。",
-      button1: { text: "最初に戻る", nextSceneIndex: 0 },
-      button2: { text: "終了", nextSceneIndex: -1 } // -1 is the end of the game
-    }
+       image: "https://images.unsplash.com/photo-1694070781623-629e71966431?q=80&w=2531&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      text: "A stone fell from the mountain onto the only road on the island.",
+      button1: { text: "Start over", nextSceneIndex: 0 },
+      button2: { text: "The end", nextSceneIndex: -1 },
+    },
+    {
+      image: "https://images.unsplash.com/photo-1641116694964-58f5e37e25c9?q=80&w=2533&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+     text: "The driver was actually the owner of the island. They let us stay at a hotel with a spectacular view, and during our stay, they took us on a tour of the island by helicopter and boat. It was like a dream.",
+     button1: { text: "Start over", nextSceneIndex: 0 },
+     button2: { text: "The end", nextSceneIndex: -1 },
+     hideButton2: true
+   },
+   {
+    image: "https://images.unsplash.com/photo-1682686581295-7364cabf5511?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+   text: "We managed to find a hotel and enjoyed our vacation by eating at local restaurants, scuba diving, and hiking.",
+   button1: { text: "Start over", nextSceneIndex: 0 },
+   button2: { text: "The end", nextSceneIndex: -1 },
+   hideButton2: true
+ }
+
   ];
 
